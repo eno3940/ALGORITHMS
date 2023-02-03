@@ -1,0 +1,26 @@
+    answer = 0
+    cnt=0
+    from collections import deque
+    P=deque(P)
+    for i in range(len(I)):
+        try:
+            while P[i]!=I[i]:
+                del P[i]
+                cnt+=1
+        except:
+            pass
+    if ''.join(list(P))==I:
+        answer=cnt
+    if cnt==0 and len(P)-len(I)>0:
+        answer=len(P)-len(I)
+    else:
+        answer="IMPOSSIBLE"
+    return answer
+
+num_cases = int(input())
+
+for case in range(1, num_cases + 1):
+    I = input()
+    P = input()
+    y = solve(P, I)
+    print('Case #{}: {}'.format(case, y))
