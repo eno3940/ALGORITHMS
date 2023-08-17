@@ -15,7 +15,7 @@ def quick_sort(array, start, end):
             array[right], array[pivot] = array[pivot], array[right]
         else: #교차 되기 전 까지 작은 값(right)과 큰 값(left)을 스와프
             array[left], array[right] = array[right], array[left]
-    quick_sort(array, start, right-1) #교차 돼서 9번 줄 while에 벗어나면 분할 구역 기준으로 재귀
+    quick_sort(array, start, right-1) #right(교차될 때 작은값)와 pivot값을 바꿨으니 right기준(pivot)으로 분할
     quick_sort(array, right+1, end) # 오른쪽 분할 구역 다시 반복/재귀
 
 quick_sort(array,0,len(array)-1)

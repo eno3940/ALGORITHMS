@@ -9,6 +9,6 @@ for i in range(1,len(array)):
     for j in range(i,0, -1): #지금 위치에서 0번 째까지 왼쪽(-1)으로 선형 탐색
         if array[j]<array[j-1]:
             array[j],array[j-1]= array[j-1],array[j]
-        else: #이게 가장 중요. 없어도 되지만 최선의 경우 O(N)으로 줄여줄 정도로 차이가 있음.
+        else: #자기 보다 작은 데이터를 만나면 그 위치에서 멈춤
             break
 print(array)

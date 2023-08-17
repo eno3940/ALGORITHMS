@@ -13,32 +13,32 @@ def solution(board):
     cnt_X,cnt_O=count_symbols(board)
     # 누가 이겼는지?
     def check_win(board):
-        winner=[]
+        winner=str()
         # 가로 방향으로 승리 확인
         for i in range(3):
             if board[i][0] == board[i][1] == board[i][2] != ".":
-                winner.append(board[i][0])
+                winner+=board[i][0]
 
         # 세로 방향으로 승리 확인
         for i in range(3):
             if board[0][i] == board[1][i] == board[2][i] != ".":
-                winner.append(board[0][i])
+                winner+=(board[0][i])
 
         # 대각선 방향으로 승리 확인
         if board[0][0] == board[1][1] == board[2][2] != ".":
-            winner.append(board[0][0])
+            winner+=(board[0][0])
         if board[0][2] == board[1][1] == board[2][0] != ".":
-            winner.append(board[0][2])
-
-        if "O" and "X" in winner:
-            return False
+            winner+=(board[0][2])
+        
+        if "O" in winner and "X" in winner:
+            return 0
         if len(winner)==1:
             return winner[0]
         if len(winner)==0:
             return None
         
     winner=check_win(board)
-    print(winner)
+    
     # 이긴 사람이 2명 이상일 때
     if winner == False:
         return 0
@@ -61,3 +61,5 @@ def solution(board):
         else:
             return 0
     
+    
+# print(solution(["SOOOL","XXXXO","OOOOO","OXXXX","OOOOE"]))
